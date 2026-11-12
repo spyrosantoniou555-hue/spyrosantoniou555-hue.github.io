@@ -1,0 +1,28 @@
+:root {
+  --bg: #EAF2FD; --surface: #FFFFFF; --ink: #0A2552; --ink-2: #4A6290; --line: #CADCF5;
+  --brand: #1565E0; --brand-2: #0B49AE; --gold: #FFC83D;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #06132D; --surface: #0D224C; --ink: #EEF4FF; --ink-2: #A5BAE2; --line: #22427F; --brand: #82B5FF; color-scheme: dark; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans", sans-serif; -webkit-text-size-adjust: 100%; }
+header { color: #FFFFFF; background: linear-gradient(165deg, #3B9BF5, #1565E0 55%, #0A3C94); padding-block: 44px 40px; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 720px; margin: 0 auto; }
+.brand { display: flex; align-items: center; gap: 18px; }
+.brand img { width: 84px; height: 84px; border-radius: 20px; box-shadow: 0 10px 24px rgb(0 0 0 / .25); }
+h1 { margin: 0; font-size: 34px; line-height: 1.1; letter-spacing: -.02em; }
+.tag { margin: 6px 0 0; opacity: .9; }
+main { padding-block: 28px 56px; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
+section { background: var(--surface); border: 1px solid var(--line); border-radius: 22px; padding: 22px 24px; margin-bottom: 18px; }
+h2 { margin: 0 0 10px; font-size: 21px; line-height: 1.25; }
+h3 { margin: 18px 0 4px; font-size: 17px; }
+p, li { color: var(--ink-2); }
+p { margin: 0 0 10px; }
+ul { margin: 0; padding-left: 22px; }
+strong { color: var(--ink); }
+a { color: var(--brand); font-weight: 600; }
+.mail { display: inline-block; margin-top: 4px; padding: 10px 16px; border-radius: 999px; background: var(--bg); border: 1px solid var(--line); font-weight: 700; color: var(--ink); user-select: all; }
+footer { text-align: center; font-size: 14px; color: var(--ink-2); }
+.lang { font-size: 14px; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); margin: 34px 0 12px; }
