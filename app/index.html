@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="el">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cyprus Quiz · Κατεβάστε το δωρεάν</title>
+<meta name="description" content="Cyprus Quiz: κουίζ γνώσεων με 9.400+ ερωτήσεις. Κατεβάστε το δωρεάν σε iPhone και Android.">
+<meta property="og:title" content="Cyprus Quiz · Κατεβάστε το δωρεάν">
+<meta property="og:description" content="Κουίζ γνώσεων με 9.400+ ερωτήσεις, ημερήσια πρόκληση και Παγκύπριο τουρνουά.">
+<meta property="og:image" content="https://spyrosantoniou555-hue.github.io/icon.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="../icon.png">
+<link rel="stylesheet" href="../style.css">
+<script>
+/* Ένας σύνδεσμος για όλους: το iPhone πάει στο App Store, το Android στο Google Play.
+   ANDROID_LIVE: γίνεται true μόλις το παιχνίδι κυκλοφορήσει δημόσια στο Google Play. */
+var IOS_URL = 'https://apps.apple.com/app/cyprus-quiz/id6836893858';
+var ANDROID_URL = 'https://play.google.com/store/apps/details?id=com.spyrosantoniou.cyprusquizzes';
+var ANDROID_LIVE = false;
+var ua = navigator.userAgent || '';
+var isIOS = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+var isAndroid = /Android/i.test(ua);
+var device = isIOS ? 'ios' : isAndroid ? 'android' : 'other';
+if (isIOS) location.replace(IOS_URL);
+else if (isAndroid && ANDROID_LIVE) location.replace(ANDROID_URL);
+</script>
+<style>
+  .get { text-align: center; }
+  .get .btn { display: block; margin: 12px auto 0; max-width: 340px; padding: 15px 20px; border-radius: 16px; background: var(--brand-2, #0B49AE); color: #FFFFFF; font-weight: 700; font-size: 18px; text-decoration: none; }
+  .get .btn.off { background: var(--bg); color: var(--ink-2); border: 1px solid var(--line); }
+  .get .btn small { display: block; font-weight: 600; font-size: 13px; opacity: .85; }
+  .note { font-size: 15px; margin-top: 14px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap brand">
+    <img src="../icon.png" alt="">
+    <div>
+      <h1>Cyprus Quiz</h1>
+      <p class="tag">Κουίζ γνώσεων με 9.400+ ερωτήσεις · δωρεάν</p>
+    </div>
+  </div>
+</header>
+<main>
+  <div class="wrap">
+    <section class="get">
+      <h2 id="title">Κατεβάστε το Cyprus Quiz</h2>
+      <p id="lead">Διαλέξτε το κινητό σας.</p>
+      <a class="btn" id="ios" href="https://apps.apple.com/app/cyprus-quiz/id6836893858">iPhone<small>Λήψη από το App Store</small></a>
+      <a class="btn off" id="android" href="#" aria-disabled="true">Android<small>Έρχεται σύντομα στο Google Play</small></a>
+      <p class="note" id="note"></p>
+    </section>
+  </div>
+</main>
+<script>
+(function () {
+  var a = document.getElementById('android');
+  if (ANDROID_LIVE) {
+    a.href = ANDROID_URL; a.className = 'btn'; a.removeAttribute('aria-disabled');
+    a.innerHTML = 'Android<small>Λήψη από το Google Play</small>';
+  } else {
+    a.addEventListener('click', function (e) { e.preventDefault(); });
+  }
+  if (device === 'ios') {
+    document.getElementById('lead').textContent = 'Σας μεταφέρουμε στο App Store…';
+  } else if (device === 'android' && !ANDROID_LIVE) {
+    document.getElementById('title').textContent = 'Σύντομα και στο Android';
+    document.getElementById('lead').textContent = 'Το Cyprus Quiz για Android κυκλοφορεί σε λίγες μέρες στο Google Play. Προς το παρόν είναι διαθέσιμο στο iPhone.';
+    document.getElementById('ios').style.display = 'none';
+  } else if (device === 'android') {
+    document.getElementById('lead').textContent = 'Σας μεταφέρουμε στο Google Play…';
+  } else {
+    document.getElementById('note').textContent = 'Ανοίξτε αυτόν τον σύνδεσμο από το κινητό σας για να πάτε κατευθείαν στη λήψη.';
+  }
+})();
+</script>
+</body>
+</html>
